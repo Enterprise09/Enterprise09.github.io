@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Ruby & Jekyll Install Error at Labtab"
-date:   2021-06-19 23:17:12 +0900
+date:   2021-06-20 21:55:12 +0900
 categories: jekyll update
 ---
 Hello! 
