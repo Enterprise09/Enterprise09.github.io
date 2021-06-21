@@ -2,7 +2,7 @@
 layout: post
 title:  "Ruby & Jekyll Install Error at Labtab"
 date:   2021-06-20 21:55:12 +0900
-categories: jekyll update
+categories: Error Ruby
 ---
 Hello! 
 > My Second post
