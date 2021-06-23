@@ -19,6 +19,6 @@ Hello!
 
 ---
 
-[소스 보기_Github](https://github.com/Enterprise09/Flutter_Study/tree/main/fcm_test)
+[소스 보기_Github](https://github.com/Enterprise09/Android_Study/tree/master/push_test)
 
 Good Bye ~ 
