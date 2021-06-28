@@ -1,17 +1,16 @@
 ---
 layout: post
-title: "React 공부 일기장"
+title: "React 공부 일기장 (1)"
 date: 2021-06-27 00:58:33 +0900
 categories: Coding React
 ---
 
 Hello!
-
 > My Seventh Post
 
 <br>
 
-### React 코딩 공부 일기장
+### 01. React 코딩 공부 일기장
 
 > by Movie Web Service App coding with Normad Corder
 
