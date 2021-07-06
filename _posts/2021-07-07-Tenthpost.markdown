@@ -2,7 +2,7 @@
 layout: post
 title: "React 공부 일기장 (3)"
 date: 2021-07-07 00:34:8 +0900
-categories: Coding CSS
+categories: Coding React
 ---
 
 > My Tenth Post
