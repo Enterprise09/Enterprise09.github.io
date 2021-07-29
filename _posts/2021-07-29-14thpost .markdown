@@ -1,0 +1,59 @@
+---
+layout: post
+title: "Daily Diary (1)"
+date: 2021-07-29 23:24:42 +0900
+categories: Daliy
+---
+
+> My 14th Post
+
+<br>
+
+### 01. Daily Diary
+
+> by Enterprise Kim.T.H
+
+오랜만에 일기 느낌으로 작성하려니 어색하다.
+
+오늘 하루에 대해서 정리하는 카테고리를 새로 만들려고 한다.
+
+그 첫시작이 바로 오늘 2021년 07월 29일 목요일 !
+
+먼저 오늘의 크고 작은 일정이다.
+
+```javascript
+const myLoutin = (event) => {
+  first: "Wake Up !",
+  second: "Walk with dog at 1:30pm",
+  third: "Study Linux for Linux-Master 2nd Grade",
+  forth: "Walk with dog again",
+  fifth: "Go to GYM at 8:30pm ~ 10:00pm",
+  sixth: "Now Study React.js",
+};
+
+export default myLoutin;
+```
+
+거의 12시가까이 되어 일어났는데, 변명이지만 전날 새벽까지 리눅스를 공부하느라 새벽 3시에 잠들었기 때문이다.
+
+다음으로 항상 그랬듯이 강아지들을 산책시켜주었는데, 요즘은 점심산책이 너무 뜨거운 날씨 덕에 잠시 볼일만 보고 들어오는 수준이다.
+
+따라서 빠르게 끝내고 잠시 점심을 먹은 후 바로 Linux-Master 2급 공부를 시작했고 약 3시간동안 하여 집중력이 떨어질 때 쯤,
+
+다시 강아지 산책을 해주었다. 개인적으로는 공부하다가 집중력이 떨어질 듯 하면 잠시 나갔다가 들어오는 것이 훨씬 효율적이라고 생각한다.
+
+산책 후 저녁을 먹고 요즘 재미있게(?) 배우고 있는 주짓수 체육관에 갔다.
+
+목요일은 노기를 하는 날이고 따라서 도복을 입지 않아도 된다.
+
+2번의 스파링과 기술연습을 하고 10시쯤에 집에 도착했다.
+
+잠시 간식을 먹고, 지금은 [트위터 클론](https://github.com/Enterprise09/ewitter.git){:target="\_blank"}을 만들며 React.js와 Firebase등을 공부하는 중이다.
+
+앞으로의 일정은 12시 전까지 코딩공부를 하고 12시 부터는 Linux-Master 2급 공부를 하려고 한다.
+
+최대한 2시 전에는 마치고 자려고 한다. (잘 안되지만 . . . )
+
+그럼 오늘은 여기까지 !
+
+Good Bye ~
