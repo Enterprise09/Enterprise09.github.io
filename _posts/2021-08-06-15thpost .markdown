@@ -1,0 +1,90 @@
+---
+layout: post
+title: "Daily Diary (2)"
+date: 2021-08-06 17:58:50 +0900
+categories: Daliy
+---
+
+> My 15th Post
+
+<br>
+
+### 02. Daily Diary
+
+> by Enterprise Kim.T.H
+
+또 아주 오랜만에 포스팅(?) 같은 일기를 써보려고 한다.
+
+먼저 시그니처 일정표 ~ ~ ! !
+
+```javascript
+const myLoutin = (linux_first_test) => {
+  if (linux_first_test) {
+    console.log("Study hard for second test");
+  } else {
+    console.log("Study again...");
+  }
+
+  const installBigSur = (iso) => {
+    if (iso) {
+      iso.install;
+      console.log("install MacOS BigSur");
+    } else {
+      console.log("redownloading please");
+    }
+    iso.unconnect();
+    if (iso.install) {
+      console.log("Study BigSur ! !");
+    }
+  };
+};
+```
+
+위에 작성한 것과 같이 요즘은 리눅스와 Mac OS를 공부하고 있다.
+
+정확히는 리눅스 마스터 2급을 공부하면서 실습용으로 그전부터 해킹보안 공부용으로 사용하던
+
+칼리리눅스로 실습하며 진행하였다.
+
+Mac OS를 사용하게 된 이유는 음 . . . 그저 Windows의 터미널창이 너무 불편했기 때문이다.
+
+Windows의 터미널은 유닉스 기반이 아니기 때문에 내가 공부한 리눅스 명령어들이 먹히지 않는다.
+
+그래서 따로 명령어를 기억하고 있어야 하는데 너무 헷갈리는 단점이 있었다.
+
+그래서 그냥 유닉스 기반인 Mac OS에서 프로그램 환경을 구축해보자 라는 생각으로 VMWare를 이용하여
+
+Mac OS 10.15 버전인 Catalina버전 부터 데스크탑에 설치 해보았다.
+
+설치과정은 아주 간단했지만 VSCode를 맥에서 돌릴 때 VMWare라는 가상머신을 거쳐서 실행을 해야 했기 때문에
+
+Terminal에서 너무 심한 렉이 발생되었다. 왜 그런지 확인을 해보았더니 Terminal을 Render하는 GPU의 설정이
+
+가속설정이 OFF상태로 되어있었다. 그래서 GPU-Accelator(그래픽카드 가속)설정을 Canvas로 바꿔주었더니 렉이 아주 쉽게 해결되었다.
+
+위와 같이 설정을 했는데도 Terminal에서 렉이 걸린다면 Terminal를 열어서 아래의 명령어를 실행해주면 해결된다.(Mac OS 기준)
+
+```s
+codesign --remove-signature /Applications/Visual\ Studio\ Code.app/Contents/Frameworks/Code\ Helper\ \(Renderer\).app
+```
+
+---
+
+다음으로는 노트북에 Mac OS BigSur 버전, 즉 11.1버전을 설치해보았다.
+
+노트북 사양은 아래와 같다.
+
+```
+  CPU : AMD 5900HX
+  GPU : 3070 LABTAB
+  RAM : 32GB
+  GAMING LABTAB
+```
+
+코어가 AMD코어이기 때문에 설치에 시간이 쫌 걸릴거라고 생각했지만 시간이 거의 걸리지 않았다.
+
+데스크탑과 같은 방식으로 설치하였고 다만 vmx파일(VMWare Machine Disk File)에서 마지막에 몇가지 설정만 더하여 주었다.
+
+아주아주 쉽게 설치와 안정화 과정이 마쳐졌고 이제 Ruby, HomeBrew, ITerm2등 필요한 세팅을 마치려고 한다.
+
+Good Bye ~
