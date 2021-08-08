@@ -1,0 +1,81 @@
+---
+layout: post
+title: "Daily Diary (3)"
+date: 2021-08-08 23:46:30 +0900
+categories: Daliy
+---
+
+> My 16th Post
+
+<br>
+
+### 03. Daily Diary
+
+> by Enterprise Kim.T.H
+
+```javascript
+const myLoutin = (event) => {
+  const windowTerminalSet = (props) => {
+    try {
+      props.install.ohmyzsh;
+      props.install.theme;
+      props.install.node;
+    } catch (error) {
+      console.log(error.msg);
+      props.uninstall.all;
+    }
+  };
+};
+```
+
+---
+
+요즘은 터미널창을 쓸일이 많아졌다.
+
+원래는 안하던 웹쪽을 공부하고, 리눅스 마스터 시험을 위해서 콘솔창을 많이 쓰려고 노력중이다.
+
+저번 포스팅에서 말한 것과 같이 터미널창이 Unix기반인 맥을 VMWare를 이용해서 사용하다 보니
+
+윈도우에서도 요렇게 예쁘고 실용적인 터미널창을 쓸 수는 없을까 라는 생각을 하게 되었다.
+
+그래서 알아보니 윈도우에서 Linux기반의 Shell를 사용할 수 있는 방법인 WSL를 알게되었다.
+
+설치하여 Oh-My-ZSH설치와 Theme변경까지는 어렵지 않았는데, 그 이후에 평소 많이 쓰는 명령어인
+
+npm, npx, node, ruby, gem 등의 명령어가 먹히지 않아서 꽤 당황을 했다.
+
+결국에는 WSL쪽에도 이것들을 설치해주어야지만 위의 자주 사용하는 명령들을 사용할 수 있는 문제였다.
+
+일단 시간이 없어 node.js만 설치 해두었는데 컴퓨터 용량이 점점 차오르는 것이 눈에 보일 정도이다.
+
+무서워서 ruby는 설치를 하지 않고 일단은 Window PowerShell에서 사용하는 것으로 생각하고 있다.
+
+조만간 SSD 1TB짜리를 구입할 예정이지만 그래도 예쁘고 조금 편리하다는 이유로 용량을 포기하면 안될 것 같았다.
+
+---
+
+WSL의 장점
+
+> Theme선택이 가능하여 커스텀이 쉽다.
+
+> Git Repository에 접근하였을 때 보기 쉽게 알려준다.
+
+> Linux명령어를 사용할 수 있다.
+
+<br>
+
+WSL의 단점
+
+> Windows 기본 터미널보다 처음 Lauch속도가 매우 느리다.
+
+> Windows에 이미 개발환경이 구축되어있는 명령어들을 다시 설치해야한다.
+
+> WSL터미널에서 code명령으로 vscode를 실행하면 새로 다운 받아야 하는 Extension이 존재한다.
+
+---
+
+위와 같은 장단점이 있다. 설치하실 분들은 꼭 위의 특징을 숙지하시고 설치하는 것을 추천합니다.
+
+이제 Github에 Commit & Push 후 리버를 데리고 산책다녀와서 자야겠다.
+
+Good Bye ~
