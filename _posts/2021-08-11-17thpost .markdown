@@ -1,0 +1,78 @@
+---
+layout: post
+title: "Daily Diary (4)"
+date: 2021-08-11 23:40:00 +0900
+categories: Daliy
+---
+
+> My 17th Post
+
+<br>
+
+### 04. Daily Diary
+
+> by Enterprise Kim.T.H
+
+```javascript
+const myLoutin = (event) => {
+  const iTerm2_version = "3.4.8";
+  const [version, setVersion] = useState(3.4.8);
+  const iTerm2_Bungs = (error) =>{
+    console.log("iTerm2 have some serious bugs in last stable version");
+    if(error){
+      iTerm2_version--;
+    }else{
+      console.log("find error fixed version");
+      exit(1);
+    }
+  }
+};
+```
+
+---
+
+Mac OS BigSur에서 많은 개발자들은 기본 Terminal대신 iTerm2라는 프로그램을 사용한다.
+
+iTerm2를 사용하는 이유는 많은 유용한 기능과 툴을 제공하기 때문이고, 테마 변경도 비교적 예쁘게 커스텀이 가능하다.
+
+나도 사용중에 버그를 발견하게 되었다.
+
+삭제 후 재설치에도 버그는 고쳐지지 않았고, .zshrc파일을 지우고 시도해보려고 하였지만 그거는 잘못될 가능성이 너무 높아서 시도하지 못했다.
+
+암튼 결국 버전을 다운그레이드하여 설치하여보니(version : 2.3.4) 버그가 발견되지 않았다.
+
+---
+
+위에서 말했던 버그는 쉽게 말해 iTerm2를 실행만 시켰는데 갑자기 iTerm2에서 자동으로 어떤 명령어를 실행하는 것 같았다.
+
+그러면서 "last login {time}" 요런식으로 나오는 첫줄이 보이지 않게 되고
+
+full screen mode로 변경하면 맨위에 앞의 기본 문구가 나오는 것을 확인 하였다.
+
+쉽게 말해 iTerm2를 실행하면 두번째 줄이 생기고 첫번째 줄은 화면에 보이지 않게 되는 버그이다.
+
+---
+
+내 성격상 작은 것이라도 전과 같지 않으면 고쳐야지만 직성이 풀리는 사람인지라 . . .
+
+이 문제를 가지고 거의 하루 종일 씨름한 것 같다.
+
+시간이 아깝다고 할 수도 있지만, 솔직히 이렇게 어려운 문제를 해결하고 나면
+
+앞으로 이런 비슷한 문제를 만났을 때 잘 해결할 수 있는 능력을 하나씩 갖추어가는 것 같아서 기분이 상쾌하다.
+
+물론 문제를 풀때는 아니지만 . . .
+
+---
+
+아참 !
+
+그리고 오늘 공주교육대학교 방과후 학교 지원팀인 나우누리와 중학교 코딩강사로 계약을 하게 되었다.
+
+앞으로 아이들을 가르칠 생각에 벌써 . . . 심란하다 ㅎ
+
+하지만 내가 학교에서 배우면서 "이런거를 더 자세하게 알려주면 좋겠다" 라고 생각했던 것들을
+
+실제로 반영하여 학생들에게 가르칠 수 있다는 점은 정말 매력적인 것 같다.
+
+Good Bye ~
