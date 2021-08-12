@@ -1,0 +1,58 @@
+---
+layout: post
+title: "Mac OS(BigSur v.11.1)에서 Homebrew install Error"
+date: 2021-08-12 21:32:00 +0900
+categories: Error HomeBrew
+---
+
+> My 18th Post
+
+<br>
+
+### Error Homebrew
+
+> by Enterprise Kim.T.H
+
+```javascript
+const homebrewInstall_rbenv = (rbenv, error) => {
+  if(error.msg === "no previously deleted formula found"){
+    exec(rm -fr $(brew --repo homebrew/core));
+    rbenv.install();
+  }
+  console.log("rbenv install success");
+};
+```
+
+---
+
+오늘 데스크탑의 가상머신 위에 설치한 Mac OS(Catalina 10.12v)에 Ruby개발환경을 구축하기 위해서
+
+Homebrew를 설치하여 Ruby의 버전관리 패키지인 rbenv를 설치하려고 하였다.
+
+Homebrew까지는 순조롭게 설치가 되었으나, rbenv설치를 위하여 'brew install rbenv ruby-build'명령어를 실행하니
+
+위에 기록한 "no previously deleted formula found"라는 에러를 발생시키며 설치에 실패하였다.
+
+이게 무슨 상황인가 싶어서 잠시 멍하니 있다가, 구글링을 통해 방법을 찾게 되었다.
+
+해결방법은 homebrew의 core rep를 삭제하고 다시 실행하는 것이었다. 아래의 명령어로 가능하다.
+
+```shell
+rm -fr $(brew --repo homebrew/core)
+```
+
+---
+
+결론적으로 위의 방법으로 잘 설치를 완료하였고 추가로 iTerm2의 첫 실행시 두줄이 나오는 버그를 고치기 위해서
+
+iTerm2의 버전을 3.3.12v으로 다운그레이드 하였다. 3.3.12v이 버그가 발생하지 않는 가장 최신의 버전임을 확인하였다.(따로 포스팅할 계획)
+
+나중에 맥북을 사서 다시 세팅을 해야 할 때를 대비하여 도움을 받았던 블로그의 주소를 아래에 기록한다.
+
+[Homebrew core 삭제](https://velog.io/@dual2/mac-brew-install-에러){:target="\_blank"}
+
+[rbenv - ruby 설치](https://jojoldu.tistory.com/288){:target="\_blank"}
+
+---
+
+Good Bye ~
