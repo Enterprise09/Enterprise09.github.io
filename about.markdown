@@ -5,7 +5,9 @@ permalink: /about/
 ---
 
 ---
-김태호
+
+### 김태호
+
 > Programming
 
 > Swimming
@@ -14,28 +16,35 @@ permalink: /about/
 
 ---
 
-Enterprise
+### Enterprise
+
 > Nick Name
 
 > Enhancement for Dream
 
 ---
 
-대학생
+### Project
+
+> flutter 및 Android 기반 프로젝트들은 Github로 방문바랍니다!
+
+> [ewitter](https://enterprise09.github.io/ewitter/){:target="\_blank"}
+
+> [movie_app](https://enterprise09.github.io/movie_app/){:target="\_blank"}
+
+---
+
+### 대학생
+
 > Software Enginnering
 
 ---
 
-21살
+### 21살
+
 > 2001.09.09
 
-
-
-
-
-
-
-<!-- 
+<!--
 This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
 
 You can find the source code for Minima at GitHub:
