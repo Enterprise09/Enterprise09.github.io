@@ -1,0 +1,154 @@
+---
+layout: post
+title: "CSS의 기본 (1)"
+date: 2021-08-30 23:33:30 +0900
+categories: Web CSS
+---
+
+> My 24th Post
+
+<br>
+
+### CSS의 기본 (1)
+
+> by Enterprise Kim.T.H
+
+```javascript
+const html_listTag = (tag) => {
+  console.log("CSS에서 가장 많이 쓰이는 속성을 알아봅시다!");
+};
+```
+
+---
+
+### 1. CSS가 하는 일은 무엇일까?
+
+앞서 HTML의 기본(1) 편에서 설명한 것과 같이 HTML은 페이지의 레이아웃을 구성합니다.
+
+기본적으로 레이아웃 만을 구성하기 때문에, 굉장히 단조롭게 보이게 됩니다.
+
+흰색바탕에 회색 버튼과 검정색 테두리의 박스들 . . . 이것이 가장 기본적인 레이아웃의 형태라고 할 수 있습니다.
+
+이렇게 너무 단조로운 레이아웃을 예쁘고, 깔끔하게 꾸미기 위해서 사용되는 것이 바로 **CSS**입니다.
+
+일러스트로 레이아웃을 구성하고, 포토샵으로 가져와서 꾸미는 것과 같다고 볼 수 있습니다.
+
+---
+
+### 2. CSS에서 가장 많이 쓰이는 TOP3 속성값
+
+**TOP1**은 누가 뭐래도 **background-color**속성입니다.
+
+**background-color**는 한국말로 **배경색**입니다.
+
+말그대로 해당 영역의 배경색을 지정해주는 속성이고, background로 작성하여 사용하기도 합니다.
+
+여기서 둘의 차이를 간단하게 집고 넘어가자면, background속성은 배경에 이미지를 설정할 수 있지만
+
+background-color속성은 오직 색깔만을 지정할 수 있습니다.
+
+```html
+<div style="background-color: red">RED BOX</div>
+```
+
+> 실행결과<br />
+>
+> > <div style="background-color: red">RED BOX</div>
+
+**TOP2**는 개인적으로 **text-align**속성이 유용하게 쓰이는 것 같습니다.
+
+우리가 실제로 웹 레이아웃을 작성할 때 Text를 왼쪽으로 맞출 것인지 오른쪽으로 맞출 것인지 정하게 됩니다.
+
+여기서 사용하는 속성이 **text-align**속성입니다.
+
+이 속성의 값으로는 left, right, center 요렇게 3가지를 많이 사용하는데
+
+말그대로 왼쪽정렬, 오른쪽정렬, 가운데정렬을 의미합니다.
+
+코드를 보면 훨씬 쉽게 다가올 것입니다.
+
+```html
+<div style="background-color: red; text-align: left">LEFT</div>
+<div style="background-color: blue; text-align: right">RIGHT</div>
+<div style="background-color: yellow; text-align: center">CENTER</div>
+```
+
+> 실행결과 <br />
+>
+> > <div style="background-color: red; text-align: left">LEFT</div>
+> > <div style="background-color: blue; text-align: right">RIGHT</div>
+> > <div style="background-color: green; text-align: center">CENTER</div>
+
+**TOP3**는 다른 것들도 많이 있지만 **flex**속성을 고르고 싶은데요 . . .
+
+정확히는 **display**속성이라고 할 수 있습니다.
+
+**display**속성에는 여러가지 값이 들어갈 수 있고, 정말 중요한 역할을 하는 속성중에 하나 입니다.
+
+차후에 자세하게 다루겠지만 오늘은 맛보기로 **display**의 속성값중에서 하나인 **flex**에 대해서만 다루도록 하겠습니다.
+
+지금은 조금 어려울 수 있지만 후에 CSS Master가 되고나면
+
+'아 flex가 가장 쉬운거였구나'하게 되시리라 믿습니다.
+
+먼저 사용 방법은 부모 박스에 'display : flex', 즉 display속성값을 flex로 주어서
+
+'이 박스는 flex방식으로 화면에 보일 것입니다.' 라는 것을 알려줍니다.
+
+그리고 부모 박스안에 들어있는 자식 박스에 각각의 크기를 'flex : 1'과 같은 형식으로 지정해줍니다.
+
+그렇게 되면 자식 박스에서 지정한 flex값의 크기에 따라서 자동으로 크기를 부모 박스 안에서 맞추어 줍니다.
+
+일단 말로만 설명을 들으면 더 어려우니 코드를 보겠습니다.
+
+```html
+<!--여기가 부모박스-->
+<div style="display: flex; background-color: lightgray">
+  <!--자식박스 3개 -->
+  <div style="flex: 1; background-color: red">Flex : 1</div>
+  <div style="flex: 2; background-color: blue">Flex : 2</div>
+  <div style="flex: 3; background-color: green">Flex : 3</div>
+</div>
+```
+
+> 실행결과<br />
+>
+> > <div style="display: flex; background-color: lightgray">
+> >   <div style="flex: 1; background-color: red">Flex : 1</div>
+> >   <div style="flex: 2; background-color: blue">Flex : 2</div>
+> >   <div style="flex: 3; background-color: green">Flex : 3</div>
+> > </div>
+
+코드를 보면 위에서 설명하고자 하는 것이 무엇인지 대충은 아시겠나요?
+
+~~뭔 소리를 하는거야~~
+
+---
+
+오늘은 CSS의 입문편처럼 진행을 해보았습니다.
+
+~~이게 뭔 입문이야~~
+
+**TOP3**로 꼽아본 속성들은 앞으로 정말 밥먹듯이 사용될 속성들이니 기억하고 계시면 좋을 것 같습니다.
+
+다만 마지막에 알려드린 flex박스의 경우에는 약간 중급이상의 내용이니 지금은 모르고 넘어가셔도 괜찮습니다.
+
+이제 드디어 페이지에 색깔을 넣을 수 있게 되었는데 기분이 어떠신가요?
+
+다음시간에도 유용한 CSS속성들에 대해서
+
+천천히 !
+
+쉽게 !
+
+재미있게 !
+
+탄탄하게 !
+
+배워보도록 하겠습니다.
+
+그럼 안녕 !
+
+---
+
+Good Bye ~
