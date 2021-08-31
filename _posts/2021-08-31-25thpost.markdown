@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "CSS의 기본 (2)"
-date: 2021-08-31 18:14:40 +0900
+date: 2021-08-31 17:14:40 +0900
 categories: Web CSS
 ---
 
