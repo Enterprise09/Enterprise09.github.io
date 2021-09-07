@@ -1,0 +1,518 @@
+---
+layout: post
+title: "CSS의 기본 (3)"
+date: 2021-09-07 16:11:42 +0900
+categories: Web CSS
+---
+
+> My 26th Post
+
+<br>
+
+### CSS의 기본 (3)
+
+> by Enterprise Kim.T.H
+
+```javascript
+const navigation_make = (event) => {
+  console.log("상단 메뉴를 nav태그와 css을 이용해서 직접 제작해봅시다.");
+};
+```
+
+---
+
+### 1. 벌써 뭐를 만들어 ?
+
+오늘 포스팅 부터는 직접 웹페이지의 구성요소들을 하나씩 만들어 보려고 합니다.
+
+CSS에 대한 기본적인 내용도 배웠고, HTML 태그들이 어디에 어떻게 쓰이는지
+
+이론적으로(?) 알아보았던 것들을 실제로 코딩을 해보면서 공부하려고 합니다.
+
+또한 저의 경험상 웹디자인, CSS는 알면 알수록 긴가민가하는 내용들이 점점 많아지더라구요.
+
+현직에 계신 웹디자이너 분들도 모든 것을 다 알고 코딩을 하시는 것이 아니라
+
+모르는 것이 생기면 그 때마다 책이나 공식문서를 보면서 코딩을 하시는 것이 일반적입니다.
+
+그러니
+
+이게 뭐지 . . .
+
+이거를 다 외우라는 건가 . . .
+
+포기해야겠구만 . . .
+
+이런 생각은 접어두시고 !
+
+이거는 이렇게 쓰는구나 하면서 점차 알아 가시면 될 것 같습니다.
+
+---
+
+### 2. 오늘 만들 것 !
+
+> 최종 결과
+
+<ul style="
+  list-style: none; 
+  display: flex; 
+  width: 420px; 
+  background: lavender; 
+  padding-left: 0px;">
+  <li style="
+    flex: 1; 
+    margin: 15px; 
+    border: 1px dashed blue; 
+    color: black; 
+    padding: 10px; 
+    text-align: center;
+    cursor: pointer;">
+    MENU1
+  </li>
+  <li style="
+    flex: 1; 
+    margin: 15px; 
+    border: 1px dashed blue; 
+    color: black; 
+    padding: 10px; 
+    text-align: center;
+    cursor: pointer;">
+    MENU2
+  </li>
+  <li style="
+    flex: 1; 
+    margin: 15px; 
+    border: 1px dashed blue; 
+    color: black; 
+    padding: 10px; 
+    text-align: center;
+    cursor: pointer;">
+    MENU3
+  </li>
+</ul>
+
+뭔가 생각했던 것보다 훨씬 쉬워보이시죠?
+
+~~뭔소리를 하는 거야~~
+
+바로 다음에서 약간의 설명을 해드리도록 하겠습니다.
+
+---
+
+### 3. 어떻게 만들지 ?
+
+우리는 이런 형태의 메뉴를 네이버, 넷플릭스, GCN방송 등
+
+우리가 사용하는 웹사이트에서 흔하게 볼 수 있습니다.
+
+이것을 HTML기본편에서 **상단메뉴**라고 설명해드렸습니다.
+
+HTML태그는 nav태그를 이용한다고 말씀드렸고,
+
+nav태그 안쪽에 실질적인 메뉴를 구성하는 요소들은 리스트 태그를 사용한다고 했습니다.
+
+여기서 리스트 태그는 ul, li태그를 주로 사용합니다.
+
+하지만 여기서 배우지 않은 개념이 등장합니다.
+
+리스트 태그로 작성하면 무조건 아래와 같이 list-style(리스트 스타일)이 왼쪽에 작성됩니다.
+
+<ul>
+  <li>MENU1</li>
+  <li>MENU2</li>
+  <li>MENU3</li>
+</ul>
+
+여러분은 메뉴중에 위처럼 못생긴 메뉴를 보셨나요?
+
+저는 가끔 인터넷이 느려서 페이지가 느리게 불러와질 때 잠깐씩 본적이 있습니다.
+
+하지만 누가 저런 디자인을 깔끔하다고 느끼지는 않겠죠?
+
+그렇기 때문에 CSS로 list-style를 보이지 않도록 할 수 있습니다.
+
+코드를 보겠습니다.
+
+```html
+<ul style="list-style: none">
+  <li>MENU1</li>
+  <li>MENU2</li>
+  <li>MENU3</li>
+</ul>
+```
+
+> 실행결과
+
+<ul style="list-style: none">
+  <li>MENU1</li>
+  <li>MENU2</li>
+  <li>MENU3</li>
+</ul>
+
+보이시나요?
+
+CSS 스타일을 적용하기 위해서 태그 안쪽에 style=""를 작성하였고,
+
+리스트 스타일을 없애기 위해서 list-style속성에 none값,
+
+즉 **아무것도 없도록 해주세요**라고 입력한 것입니다.
+
+이쯤되면 다음 질문이 생기게 됩니다.
+
+'메뉴가 세로인데?'
+
+이 문제점은 굉장히 간단하고 쉽게 해결할 수 있습니다.
+
+바로 display속성에 flex값을 주면 자동으로 가로 정렬이 됩니다.
+
+앞시간에 설명한 것과 같이 flex값은 flex-direction을 함께 사용하여 정렬 방향을 지정할 수 있습니다.
+
+또한 flex-direction값을 따로 설정하지 않는다면 기본값으로 가로 정렬이 된다고 말씀드렸습니다.
+
+그럼 바로 적용하러 가도록 하겠습니다.
+
+```html
+<ul style="list-style: none; display: flex;">
+  <li>MENU1</li>
+  <li>MENU2</li>
+  <li>MENU3</li>
+</ul>
+```
+
+> 실행결과
+
+<ul style="list-style: none; display: flex;">
+  <li>MENU1</li>
+  <li>MENU2</li>
+  <li>MENU3</li>
+</ul>
+
+어허 . . . 근데 가로 정렬을 하니까 뭔가 더 이상해졌습니다.
+
+이것도 문제점을 알면 우리가 알고 있는 코드로 쉽게 수정이 가능합니다.
+
+이 코드의 문제점은 li태그들이 서로 공간이 없이 붙어 있다는 것입니다.
+
+그러면 그 공간을 띄워주면 좋겠죠 ?
+
+띄워주는 방법은 각각의 li박스에 margin(마진)값을 설정하여 각 박스사이의 공간을 띄울 수 있습니다.
+
+그리고 더 쉬운 방법은 ul밑에 자식으로 있는 li태그에게
+
+'ul태그 안에서 알아서 공간을 비율대로 나눠 가져 !'
+
+라고 말해주는 방법도 있습니다.
+
+이 방법은 flex속성 값을 주는 방법인데요.
+
+코드를 보겠습니다.
+
+```html
+<ul style="list-style: none; display: flex;">
+  <li style="flex: 1;margin: 15px">MENU1</li>
+  <li style="flex: 1;margin: 15px">MENU2</li>
+  <li style="flex: 1;margin: 15px">MENU3</li>
+</ul>
+```
+
+> 실행결과
+
+<ul style="list-style: none; display: flex;">
+  <li style="flex: 1;margin: 15px">MENU1</li>
+  <li style="flex: 1;margin: 15px">MENU2</li>
+  <li style="flex: 1;margin: 15px">MENU3</li>
+</ul>
+
+이제 쫌 깔끔한 느낌이 들고 '아 이거 메뉴구나'라는 생각이 드는 메뉴의 틀이 만들어 졌습니다.
+
+그럼 이제 꾸미러 가봐야겠죠?
+
+---
+
+### 4. 꾸며보자 !
+
+가장 먼저 배경색을 넣고, 테두리(border)를 넣어보도록 하겠습니다.
+
+```html
+<ul
+  style="
+  list-style: none; 
+  display: flex;
+  background: lavender;"
+>
+  <li
+    style="
+    flex: 1;
+    margin: 15px; 
+    border: 1px dashed blue; 
+    color: black;"
+  >
+    MENU1
+  </li>
+  <li
+    style="
+    flex: 1;
+    margin: 15px; 
+    border: 1px dashed blue; 
+    color: black;"
+  >
+    MENU2
+  </li>
+  <li
+    style="
+    flex: 1;
+    margin: 15px; 
+    border: 1px dashed blue; 
+    color: black;"
+  >
+    MENU3
+  </li>
+</ul>
+```
+
+> 실행결과
+
+<ul style="
+  list-style: none; 
+  display: flex;
+  background: lavender;">
+  <li style="
+    flex: 1;
+    margin: 15px; 
+    border: 1px dashed blue; 
+    color: black;">MENU1</li>
+  <li style="
+    flex: 1;
+    margin: 15px; 
+    border: 1px dashed blue; 
+    color: black;">MENU2</li>
+  <li style="
+    flex: 1;
+    margin: 15px; 
+    border: 1px dashed blue; 
+    color: black;">MENU3</li>
+</ul>
+
+이렇게 배경색을 **lavender**색으로 주고
+
+테두리를 blue(파랑색), dashed(점선), 1px크기로 주었습니다.
+
+그런데 . . . 글씨가 가운데로 정렬이 안되었네요.
+
+바로 text-align속성에 center값을 주지 않았기 때문입니다.
+
+가운데 정렬을 하도록 하겠습니다.
+
+```html
+<ul
+  style="
+  list-style: none; 
+  display: flex;
+  background: lavender;"
+>
+  <li
+    style="
+    flex: 1;
+    margin: 15px; 
+    border: 1px dashed blue; 
+    color: black;
+    text-align: center;"
+  >
+    MENU1
+  </li>
+  <li
+    style="
+    flex: 1;
+    margin: 15px; 
+    border: 1px dashed blue; 
+    color: black;
+    text-align: center;"
+  >
+    MENU2
+  </li>
+  <li
+    style="
+    flex: 1;
+    margin: 15px; 
+    border: 1px dashed blue; 
+    color: black;
+    text-align: center;"
+  >
+    MENU3
+  </li>
+</ul>
+```
+
+> 실행결과
+
+<ul
+  style="
+  list-style: none; 
+  display: flex;
+  background: lavender;"
+>
+  <li
+    style="
+    flex: 1;
+    margin: 15px; 
+    border: 1px dashed blue; 
+    color: black;
+    text-align: center;"
+  >
+    MENU1
+  </li>
+  <li
+    style="
+    flex: 1;
+    margin: 15px; 
+    border: 1px dashed blue; 
+    color: black;
+    text-align: center;"
+  >
+    MENU2
+  </li>
+  <li
+    style="
+    flex: 1;
+    margin: 15px; 
+    border: 1px dashed blue; 
+    color: black;
+    text-align: center;"
+  >
+    MENU3
+  </li>
+</ul>
+
+이제 거의 완성본의 모습과 비슷해졌습니다.
+
+다만 글씨가 박스에 너무 가득차있고, 왼쪽에 이상한 공간이 많이 남는것을 볼 수 있습니다.
+
+다음 부분에서 바로 수정해서 완성해보도록 하겠습니다.
+
+---
+
+### 5. 마무리 작업
+
+위에서 발생했던 문제는 모두 padding속성으로 해결이 가능합니다.
+
+padding속성은 박스의 안쪽의 내용물(content)와 박스의 테두리까지
+
+얼마나 띄울 것이지를 결정하는 속성입니다.
+
+주로 단위는 px를 쓰는 것을 개인적으로 선호합니다.
+
+```html
+<ul
+  style="
+  list-style: none; 
+  display: flex;
+  background: lavender;
+  padding-left: 0px;"
+>
+  <li
+    style="
+    flex: 1;
+    margin: 15px; 
+    border: 1px dashed blue; 
+    color: black;
+    text-align: center;
+    padding: 10px;"
+  >
+    MENU1
+  </li>
+  <li
+    style="
+    flex: 1;
+    margin: 15px; 
+    border: 1px dashed blue; 
+    color: black;
+    text-align: center;
+    padding: 10px;"
+  >
+    MENU2
+  </li>
+  <li
+    style="
+    flex: 1;
+    margin: 15px; 
+    border: 1px dashed blue; 
+    color: black;
+    text-align: center;
+    padding: 10px;"
+  >
+    MENU3
+  </li>
+</ul>
+```
+
+> 실행결과
+
+<ul
+  style="
+  list-style: none; 
+  display: flex;
+  background: lavender;
+  padding-left: 0px;"
+>
+  <li
+    style="
+    flex: 1;
+    margin: 15px; 
+    border: 1px dashed blue; 
+    color: black;
+    text-align: center;
+    padding: 10px;"
+  >
+    MENU1
+  </li>
+  <li
+    style="
+    flex: 1;
+    margin: 15px; 
+    border: 1px dashed blue; 
+    color: black;
+    text-align: center;
+    padding: 10px;"
+  >
+    MENU2
+  </li>
+  <li
+    style="
+    flex: 1;
+    margin: 15px; 
+    border: 1px dashed blue; 
+    color: black;
+    text-align: center;
+    padding: 10px;"
+  >
+    MENU3
+  </li>
+</ul>
+
+이제 완성본의 모습과 동일한 것을 볼 수 있습니다.
+
+완성 !
+
+---
+
+마치며,
+
+이렇게 정말 간단한 nav메뉴를 만들어 보았습니다.
+
+실제로 이렇게 간단한 nav메뉴를 사용하지는 않지만,
+
+모든 nav메뉴는 이런 과정을 기초로 만들어집니다.
+
+여기서 완성본과 어떻게 만드는 지를 모두 설명해드렸지만,
+
+처음에는 보면서 같이 만드는 느낌으로 만들어 보시구,
+
+두번째 만들 때는 이 코드를 보는 횟수를 줄여가시면서
+
+직접 이게 무엇이고 어떤식으로 화면에 보일지, 보이는지를 확인하면서 작업해보시기 바랍니다.
+
+그럼 안녕 !
+
+---
+
+Good Bye ~
