@@ -2,7 +2,7 @@
 layout: post
 title: "Daily Diary (3)"
 date: 2021-08-08 23:46:30 +0900
-categories: Daliy
+categories: Daily
 ---
 
 > My 16th Post
