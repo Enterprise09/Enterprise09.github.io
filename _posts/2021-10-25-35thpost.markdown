@@ -61,11 +61,13 @@ spring은 하나의 framwork이고, framwork를 이용하여 프로젝트를 진
 
 2번은 JDBC Template의 장점에 관한 내용이며,
 
-3번은 Controller Class에서 url를 맵핑해주는 메소드, 즉 RequestMapping이 정답이었다.
+3번은 DAO와 DTO에 대한 문제였고,
 
-4번은 Collection API에 관련된 내용으로 ArrayList와 Map이 어떠한 특징과 장점을 가지고 있는지 쓰는 문제였다.
+4번은 Controller Class에서 url를 맵핑해주는 메소드, 즉 RequestMapping이 정답이었다.
 
-5번은 게시판 프로젝트에서 사용자가 '/list' url로 요청을 보냈을 때의 화면을 보여주고
+5번은 Collection API에 관련된 내용으로 ArrayList와 Map이 어떠한 특징과 장점을 가지고 있는지 쓰는 문제였다.
+
+6번은 게시판 프로젝트에서 사용자가 '/list' url로 요청을 보냈을 때의 화면을 보여주고
 
 어떠한 과정을 거쳐서 그림의 결과가 나왔는지 도식화하여 설명하는 문제였다.
 
