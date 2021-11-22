@@ -26,7 +26,11 @@ permalink: /about/
 
 ### Project
 
-> flutter 및 Android 기반 프로젝트들은 Github로 방문바랍니다!
+> flutter 및 Android 기반 프로젝트들은 Github로 연결됩니다!
+
+> [End-Line](https://github.com/Enterprise09/EndLine/blob/master/README.md){:target="\_blank"}
+
+> [Netflix_clone](https://github.com/Enterprise09/Flutter_Study/tree/main/netflix_clone_project){:target="\_blank"}
 
 > [ewitter](https://enterprise09.github.io/ewitter/){:target="\_blank"}
 
