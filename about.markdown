@@ -6,7 +6,7 @@ permalink: /about/
 
 ---
 
-### 김태호
+### [김태호](https://enterprise09.github.io/portfolio/){:target="\_blank"}
 
 > Programming
 
