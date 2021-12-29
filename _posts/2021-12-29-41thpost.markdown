@@ -1,0 +1,149 @@
+---
+layout: post
+title: "Socket.io (2)"
+date: 2021-12-30 01:25:00 +0900
+categories: Node.js WebRTC Socket.io Zoom
+---
+
+> My 41th Post
+
+<br>
+
+### Socket.io Study with Zoom Clone
+
+> by Enterprise Kim.T.H
+
+```javascript
+const io = (socket) => {
+  socket.on("connection", () => {
+    console.log("welcome to socket.io world!!");
+  });
+};
+```
+
+---
+
+### 이벤트 기반 통신?
+
+오늘은 저번 포스팅에 이어서 Socket.io서버와 브라우저(클라이언트)의 '이벤트 기반 통신'에 대해서 알아보려고 한다.
+
+저번시간에 살펴본 것과 같이 Socket.io는 '이벤트 기반 양방향 실시간 통신'을 지원해준다.
+
+이벤트 기반 통신에 대해서 간단한 코드를 가지고 설명하도록 하겠다.
+
+```js
+const form = document.querySelector("form");
+form.addEventListener("submit", () => {
+  const input = form.querySelector("input");
+  console.log(`value: ${input.value}`);
+});
+```
+
+위의 코드는 Form에 입력을 마친 후 Submit를 하면 입력한 값을 콘솔에 보여주는 간단한 Javascript코드이다.
+
+정확히는 '이벤트 기반 통신'이 아닌 '이벤트 컨트롤 프로그래밍'(?) 이라고 할 수 있을 것 같다.
+
+여기서 가장 중요하게 봐야하는 부분은 `form.addEventListener("[이벤트명]", [콜백함수])` 부분이다.
+
+form에 어떠한 **이벤트**가 발생하였을 때 실행될 동작을 **콜백함수**로 등록해주는 부분이다.
+
+따라서 form에 마우스가 올라갔을 때나, 클릭되었을 때, 마우스가 내려갔을 때 등의 이벤트를 모두 컨트롤 할 수 있는 것이다.
+
+---
+
+### Socket.io의 이벤트 기반 양방향 실시간 통신?
+
+Socket.io의 '이벤트 기반 통신' 또한 거의 비슷한 구조로 사용된다.
+
+다만 일반적인 `[객체].addEventListener`와 다르게 개발자가 자신만의 `이벤트명`을 만들어서 사용할 수 있다.
+
+```js
+// 클라이언트 코드 - JS
+const socket = io(); // 새로운 연결 생성
+const form = document.querySelector("form");
+
+form.addEventListener("submit", () => {
+  const input = form.querySelector("input");
+
+  // 서버로 new_message라는 이벤트를 payload와 함께 발생시킴
+  socket.emit("new_message", input.value.toString(), () => {
+    console.log("Server work's done!");
+  });
+});
+
+//서버 코드 - Node & Express
+import SocketIo from "socket.io";
+import express from "express";
+
+const app = express();
+const io = SocketIo(app);
+
+io.on("connection", (socket) => {
+  // new_message이벤트가 발생하면 실행
+  io.on("new_message", (msg, done) => {
+    console.log(`new message: ${msg}`);
+    setTimeout(() => {
+      //10초 후 실행
+      done();
+    }, 10000);
+  });
+});
+```
+
+예시 코드를 서버와 클라이언트로 구분하여 작성하였다.
+
+먼저 클라이언트에서 서버와의 새로운 연결을 `const socket = io()`를 이용하여 생성한다.
+
+그러면 Socket.io에 기본적으로 구성되어 있는 이벤트중 `connection` 이벤트가 발생하게 된다.
+
+`connection` 이벤트가 발생했을 때 핸들링하는 부분이 바로 `io.on("connection", [콜백])` 부분이다.
+
+다음으로 클라이언트에서 사용자가 form 입력을 마치고 Submit를 하였을 때,
+
+앞에서 만들어진 서버와의 연결을 이용해 서버로 `new_message`라는 `"개발자 정의 이벤트"`을 발생시킨다.
+
+그러면 서버에서는 `io.on("new_message", [콜백])` 부분에서 이벤트를 핸들링하며 콜백을 실행하는 형태이다.
+
+---
+
+### Socket.io의 이벤트 기반 통신의장점 및 특이점
+
+Javascript를 써본 사람이라면 누구나 위의 코드를 보며 깜짝놀랐을 것이다.
+
+~~아닐 수도 있고~~
+
+Socket.io의 이벤트 기반 통신의 가장 큰 장점이자 특이하다고 볼 수 있는 부분은
+
+클라이언트에서 서버로 이벤트를 발생시키며, payload들 즉 값을 전달할 수 있다는 점이다.
+
+더 특이한 점은 파라메터로 값들만 전달이 가능한 것이 아니라 마지막 파라메터는 `함수`가 올 수 있다는 점이다.
+
+이것을 사용할 때 주의사항은 **함수를 전달하고자 한다면 함수는 반드시 마지막 파라메터로 넣어줘야한다.**
+
+또 `'서버에서 클라이언트가 보낸 코드가 실행되면 심각한 보안 문제가 발생하는 것이 아닌가?'`라고 생각할 수도 있다.
+
+하지만 클라이언트가 보낸 코드가 `서버`상에서 실행되는 것이 아니라 서버가 `클라이언트` 위에서 실행하는 것이기 때문에 심각한 보안 문제는 발생하지 않는다.
+
+즉 클라이언트가 서버로 보낸 함수는 `서버에서 실행되는 것이 아닌 클라이언트에서 실행`되는 것이다.
+
+~~뭐라는 거야~~
+
+이 부분에 대해서는 다음 포스팅에서 예시 코드를 보면서 더 자세히 설명하도록 하겠다.
+
+---
+
+### 마치며
+
+저번 포스팅에 이어 Socket.io의 `이벤트 기반 통신`에 대해서 자세히 알아보았다.
+
+이 부분을 자세히 작성한 이유는 너무 유용한 기능이기 때문이다.
+
+클라이언트와 서버가 통신하는 것 뿐만 아니라 payload 및 callback함수까지 보낼 수 있다는 것은 정말 놀라운 기능이다.
+
+놀라운 기능인 만큼 아직 설명하고 싶은 부분이 너무나 많이 남아있기 때문에
+
+다음시간에는 클라이언트에서 함수로 보내는 callback과 양방향 통신에 대해서 포스팅하려고 한다.
+
+그럼 안녕 !
+
+Good Bye ~
