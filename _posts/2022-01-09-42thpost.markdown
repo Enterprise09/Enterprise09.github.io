@@ -1,0 +1,236 @@
+---
+layout: post
+title: "React.js - 컴포넌트간 props 전달"
+date: 2022-01-09 19:00:00 +0900
+categories: React
+---
+
+> My 42th Post
+
+<br>
+
+### React - what is props ?
+
+> by Enterprise Kim.T.H
+
+```js
+import Home from "/Components/Home.js";
+
+class Test extendes React.Component{
+  const data = "hi there";
+  render(<Home data={data} />);
+}
+
+```
+
+---
+
+### React의 props를 알아보자
+
+오늘은 React를 쓰는 이유(?)이자 지금의 React가 존재하도록(?)
+
+만들어준 기능 중 하나인 props에 대해서 알아보려고 한다.
+
+개인적으로 React를 좋아하는 이유 중에 하나도 이 props이다.
+
+그럼 본격적으로 props가 무엇이고 어떻게 쓰는 것인지 알아보자!
+
+---
+
+### props가 뭐지 ?
+
+쉽게 말해 props란 컴포넌트끼리 객체, 즉 어떠한 값을 전달하는 수단이다.
+
+다른 언어나 프레임워크에서의 매개변수를 전달하는 것과 비슷한 개념이다.
+
+하지만 위에서 말한 것과 같이 `객체`를 전달할 수 있기 때문에
+
+단순한 값이나 데이터를 전달하는 것을 넘어서 `함수` 또한 전달할 수 있다.
+
+또한 데이터를 전달하는 목적이 아니라도 React가 기본으로 제공해주는 props를 이용할 수 있다.
+
+React가 기본으로 제공해주는 props는 웹페이지의 정보등과 같은 중요한 정보들이 저장되어 있다.
+
+---
+
+### 어떻게 사용해 ?
+
+간단한 예제 코드를 보면서 설명하도록 하겠다.
+
+```js
+// Index.js
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById("root")
+);
+
+// App.js
+import React from "react";
+
+class App extends React.Component {
+  render() {
+    console.log(this.props);
+    return (
+      <div>
+        <h1>This is App.js!</h1>
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+`Index.js` 파일에서 `App` 컴포넌트를 화면에 render하고 있는 것을 볼 수 있다.
+
+`App.js` 파일을 살펴보면 `console.log(this.props)`부분을 볼 수 있는데
+
+이 코드가 저장되어 있는 props를 콘솔에 출력해주는 코드이다.
+
+여기서 한가지 의문점이 들 수 있다.
+
+`어떻게 값을 전달한다는 거지 ?`
+
+사실 위에 보이는 예제 코드에서는 `Index.js`에서 `App.js`로 아무런 값을 전달해주지 않았다.
+
+그러면 어떤 값이 넘어올까 ? ? ?
+
+---
+
+### JS의 기본 제공 props
+
+위에서도 잠깐 설명을 했지만 props는 JS가 기본적으로 제공하는 정보를 가지고 있다.
+
+<img src="https://user-images.githubusercontent.com/73864148/148676973-c8919285-8115-4aca-8054-9894dfc047fa.png">
+
+우리는 아무런 값을 전달하지 않았지만 너무나 친절한 JS는 위와 같이 이렇게나 많은 정보를 제공해준다.
+
+~~이게 바로 JS를 사랑하는 이유~~
+
+여튼 아무런 값을 전달하지 않아도 React에서 제공해주는 기본 props들을 사용할 수 있다는 점 ! ! !
+
+---
+
+### props에 값이나 전달해보자고
+
+이제 진짜로 props로 객체를 전달해보도록 하겠다.
+
+생각보다 객체를 전달하는 방법은 너무나 쉽고 간편하다.
+
+아래의 코드를 보도록 하자
+
+```js
+// Index.js
+// ~ 생략
+ReactDOM.render(
+  <React.StrictMode>
+    <App name="Christmas" />
+  </React.StrictMode>,
+  document.getElementById("root")
+);
+// ~ 생략
+```
+
+위의 `Index.js`와 비교하면서 틀린 그림 찾기를 해보자 . . !
+
+틀
+
+린
+
+점
+
+은
+
+바로 ! ! !
+
+누가봐도 `<App name="Chistmas" />`부분이다.
+
+또한 누가봐도 `name="Christmas"` 부분이 객체를 자식 컴포넌트로
+
+전달하는 부분임에는 의심할 소지가 없다 . . . ~~쉽네~~
+
+조금 더 쓸데없는 설명을 덧붙여 보자면 객체(값)를 전달할 때는
+
+`[이름] = [전달할 값]`의 형태로 전달해주면 된다.
+
+---
+
+### 여러개도 전달가능 ?
+
+~~쓸데없는 질문을 해보면 될 것을 . . .~~
+
+당연히 가능하다. 또한 위에서 말한 것과 같이 함수를 전달할 수도 있다.
+
+```js
+// Index.js
+// ~ 생략
+function parentCallBack() {
+  console.log("parentCallBack!!!");
+}
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App parentCallBack={parentCallBack} />
+  </React.StrictMode>,
+  document.getElementById("root")
+);
+// ~ 생략
+```
+
+전달은 가능한데 자식 컴포넌트에서 전달받은 함수를 실행할 수 있는가 ?
+
+~~당연히 가능하니까 설명하고 있지 바본가~~
+
+당연히 가능하고, 이런 방식으로 다음에 설명할 `state`의 값을 변경하기도 한다.
+
+```js
+class App extends React.Component {
+  render() {
+    console.log(this.props);
+    return (
+      <div>
+        <h1>This is App.js!</h1>
+        <button onClick={() => this.props.parentCallBack()}>CallBack</button>
+      </div>
+    );
+  }
+}
+```
+
+자식 컴포넌트인 `App.js`에서 버튼을 클릭했을 때 `props`로 전달받은
+
+`parentCallBack`함수를 실행하도록 작성한 코드이다.
+
+---
+
+### 마치며
+
+React 이외의 다른 프로그램을 접하지 않고 React 외길을 걸어오신 분들은
+
+오늘 설명한 내용이 너무나 당연하고 쉽다고 생각할 것이다.
+
+하지만 나와 같이 Java나 C언어 기반의 Native언어들만을 다루다가
+
+React를 처음 접하고, props와 state기반의 프로그래밍 기법을 접하게 되면 . . .
+
+완전 신세계이다. 그럴 수 밖에 없을 것이다.
+
+자식에게 이렇게 쉽게 함수를 전달하고,
+
+자식 컴포넌트에서 부모의 함수를 실행할 수 있다는 것은
+
+너무나 큰 혁신이라고 할 수 있다. ~~Native를 무시하는 건가?~~
+
+여튼 다음에도 시간이 된다면 React를 복습하는 차원에서
+
+`state`에 대해서 설명하는 시간을 가져보도록 하겠다.
+
+그럼 안녕 !
+
+Good Bye ~
