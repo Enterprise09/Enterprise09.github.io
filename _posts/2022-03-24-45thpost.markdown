@@ -1,0 +1,107 @@
+---
+layout: post
+title: "개발 환경 세팅 - 뒷이야기"
+date: 2022-03-24 13:53:27 +0900
+categories: Setting Windows
+---
+
+> My 45th Post
+
+<br>
+
+### 개발 환경 세팅 그 뒷이야기
+
+> by Enterprise Kim.T.H
+
+```python
+def findNewOne(p):
+  if p == "Terminal":
+    return "Oh-my-Posh"
+  else:
+    return "Oh-my-Bash"
+```
+
+---
+
+### WSL1을 쓸 수밖에 없었던 이유
+
+저번 설에 데스크탑 포맷을 하고 개발환경을 다시 세팅을 하였는데,
+
+Terminal를 자주 사용하는 나로써는 Window에서 제공하는 Terminal은 . . .
+
+Git의 상태 및 브랜치 정보를 표시해주지 않기 때문에 정말 불편하다.
+
+zsh-shell의 경우 이런 것들을 커스텀할 수 있는 "Oh-my-Zsh"라는 플러그인을 지원한다.
+
+Window에서 zsh-shell를 이용하기 위해서는 WSL를 사용해야한다.
+
+다만 이번에 리뉴얼된 WSL2의 경우 가상머신을 사용하기 때문에
+
+Android Studio의 Intel-HAXM과 함께 사용할 수가 없다.
+
+따라서 WSL1을 사용해야만 하는 상황이었고, 그렇게 세팅을 하였다.
+
+---
+
+### WSL1 속도 문제 이슈
+
+WSL1를 이용한 개발 환경을 사용한지 몇시간 만에 너무나 치명적인 문제를 알게 되었다.
+
+WSL1의 경우 가상머신을 이요하는 형태가 아니기 때문에 Intel-HAXM과의 충돌은 일어나지 않지만,
+
+WSL2에 비해서 너무나 현저히 속도가 떨어지는 것을 체감할 수 있었다.
+
+예를 들어 Github에 있는 소스를 clone 해오거나 pull를 할 경우 걸리는 시간이 . . .
+
+너무나 오래걸렸고, Window에서 기본 제공해주는 Terminal이나 git-bash과 비교하였을 때
+
+파일 시스템을 읽고, 쓰는 속도가 심하게 차이 나는 것을 알 수 있었다.
+
+개발자라면 누구나 그렇듯 Git 관련 작업을 많이 하기 때문에 이런 속도 이슈를 무시하고 넘어갈 수는 없었다.
+
+또한 `npm start`나 `npm run build`와 같은 명령을 실행할 경우에는 작업 속도가 더 많이 차이가 났다.
+
+---
+
+### 다른 방법을 찾자!
+
+이런 상태로 계속 작업을 진행할 경우 버려지는 시간이 너무나 많을 것 같아서 다른 방법을 찾아보았다.
+
+첫번째로 생각한 것은 git-bash Terminal를 사용하는 방법이었다.
+
+그래서 Window Terminal과 비교를 해보았는데, git-bash 역시 Window Terminal에 비해 속도가 느린 것을 알 수 있었다.
+
+Window Terminal를 사용하는 것이 최고라는 결론을 얻게 되었다. ~~역시 Native가 최고지~~
+
+위에서 언급한 것과 같이 Zsh의 경우 "Oh-my-Zsh"라는 플러그인을 통해서 UI 커스텀이 가능하다.
+
+혹시나 하는 마음에 "Oh-my-Powershell"이라고 검색을 하였는데
+
+"Oh-my-Posh"라는 비슷한 플러그인이 있는 것을 알게되었다.
+
+바로 설치하고 사용해보니 Zsh만큼의 커스텀은 아니지만 그래도 내가 원하는 UI를 표시해주어서 만족하였다.
+
+~~"Oh-my-Bash"도 있더라~~
+
+---
+
+### 마치며
+
+그럼 안녕 !
+
+Good Bye ~
+
+---
+
+- 개발환경
+
+  - Windows10 Pro - (WSL1 사용 시 필수)
+  - 설치 순서<br />
+    1. "Oh-my-Posh" & "Oh-my-Bash" 설치
+       > "Oh-my-Bash"는 git-bash에 사용
+    2. JDK(15.0.2)
+    3. Python
+    4. Android Studio
+       > 4.1 버전 설치 권장
+       > Intel-HAXM 설치
+    5. Bluestack
