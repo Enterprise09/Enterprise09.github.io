@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "첫 주말 외출!"
-date: 2022-08-20 17:39:409 +0900
+date: 2022-08-20 17:39:40 +0900
 categories: Daily ROK
 ---
 
